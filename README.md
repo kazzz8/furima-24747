@@ -41,27 +41,30 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :orders
 - has_many :items
+- has_many :orders
+
 
 
 ## items テーブル
 
-| Column                | Type    | Options     |
-| --------------------- | ------- | ----------- |
-| item_name             | string  | null: false |
-| item_description      | text    | null: false |
-| category_id           | integer | null: false |
-| item_condition_id     | integer | null: false |
-| shipping_fee_payer_id | integer | null: false |
-| prefecture_id         | integer | null: false |
-| days_to_ship_id       | integer | null: false |
-| price                 | integer | null: false |
+| Column                | Type       | Options                        |
+| --------------------- | ---------- | ------------------------------ |
+| item_name             | string     | null: false                    |
+| item_description      | text       | null: false                    |
+| category_id           | integer    | null: false                    |
+| item_condition_id     | integer    | null: false                    |
+| shipping_fee_payer_id | integer    | null: false                    |
+| prefecture_id         | integer    | null: false                    |
+| days_to_ship_id       | integer    | null: false                    |
+| price                 | integer    | null: false                    |
+| user                  | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_many :orders
-- has_many :users, through: :orders
+- belongs_to :user
+- has_one :order
+
 
 
 ## orders テーブル
@@ -78,7 +81,7 @@ Things you may want to cover:
 - has_one :delivery_info
 
 
-## delivery_info テーブル
+## delivery_infos テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
