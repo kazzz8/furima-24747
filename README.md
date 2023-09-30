@@ -41,30 +41,30 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :user_items
-- has_many :items, through: :user_items
+- has_many :orders
+- has_many :items
 
 
 ## items テーブル
 
-| Column             | Type    | Options     |
-| ------------------ | ------- | ----------- |
-| item_name          | string  | null: false |
-| item_description   | text    | null: false |
-| category           | string  | null: false |
-| item_condition     | string  | null: false |
-| shipping_fee_payer | string  | null: false |
-| shipping_origin    | string  | null: false |
-| days_to_ship       | string  | null: false |
-| price              | integer | null: false |
+| Column                | Type    | Options     |
+| --------------------- | ------- | ----------- |
+| item_name             | string  | null: false |
+| item_description      | text    | null: false |
+| category_id           | integer | null: false |
+| item_condition_id     | integer | null: false |
+| shipping_fee_payer_id | integer | null: false |
+| prefecture_id         | integer | null: false |
+| days_to_ship_id       | integer | null: false |
+| price                 | integer | null: false |
 
 ### Association
 
-- has_many :user_items
-- has_many :users, through: :user_items
+- has_many :orders
+- has_many :users, through: :orders
 
 
-## user_items テーブル
+## orders テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
@@ -75,21 +75,21 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :item
-- has_one :deliveryinfo
+- has_one :delivery_info
 
 
-## deliveryinfo テーブル
+## delivery_info テーブル
 
-| Column       | Type       | Options                        |
-| ------------ | ---------- | ------------------------------ |
-| postcode     | string     | null:false                     |
-| prefecture   | string     | null:false                     |
-| city         | string     | null:false                     |
-| block        | string     | null:false                     |
-| building     | string     |                                |
-| phone_number | integer    | null: false                    |
-| user_item    | references | null: false, foreign_key: true |
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| postcode      | string     | null:false                     |
+| prefecture_id | integer    | null:false                     |
+| city          | string     | null:false                     |
+| block         | string     | null:false                     |
+| building      | string     |                                |
+| phone_number  | string     | null: false                    |
+| order         | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :user_item
+- belongs_to :order
