@@ -5,7 +5,6 @@ RSpec.describe User, type: :model do
     @user = FactoryBot.build(:user)
   end
 
-
   describe 'ユーザー新規登録' do
     context '新規登録できるとき' do
       it 'nickname, email, password, password_confirmation, last_name,first_name, last_name_kana, first_name_kana, birthdayが存在すれば登録できる' do
@@ -96,7 +95,7 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("First name kana は全角カタカナで入力してください")
       end
-      it '生年月日が空では登録できない' do
+      it 'birthdayが空では登録できない' do
         @user.birthday = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("Birthday can't be blank")
