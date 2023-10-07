@@ -44,10 +44,20 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
       end
-      it 'passwordは半角英数字混合でなければ登録できない' do
-        @user.password = '12345678'
+      it 'passwordが英字のみでは登録できない' do
+        @user.password = 'abcdef'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password には半角英字と半角数字の両方を含めて設定してください')
+        expect(@user.errors.full_messages).to include('Password には半角英字と半角数字の両方を含めて設定してください※全角は使用不可')
+      end
+      it 'passwordが数字のみでは登録できない' do
+        @user.password = '123456'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Password には半角英字と半角数字の両方を含めて設定してください※全角は使用不可')
+      end
+      it 'passwordに全角文字が含まれていると登録できない' do
+        @user.password = '12345ａ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Password には半角英字と半角数字の両方を含めて設定してください※全角は使用不可')
       end
       it 'passwordとpassword_confirmationが不一致では登録できない' do
         another_password = FactoryBot.build(:user).password
