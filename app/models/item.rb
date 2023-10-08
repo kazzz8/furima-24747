@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   # Validates
 
   validates :image, presence: true
-  validates :genre_id, numericality: { other_then: 1 , message: "Can't be blank"}
+  validates :category_id, :condition_id, :shipping_fee_payer_id, :prefecture_id, :days_to_ship_id, numericality: { other_than: 1 , message: "Can't be blank"}
   
   # Association
   belongs_to :user
