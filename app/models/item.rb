@@ -11,5 +11,9 @@ class Item < ApplicationRecord
 
   # ActiveHash
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :category, :condition, :shipping_fee_payer, :prefecture, :days_to_ship
+  belongs_to :category
+  belongs_to :condition
+  belongs_to :shipping_fee_payer
+  belongs_to :prefecture
+  belongs_to :days_to_ship
 end
