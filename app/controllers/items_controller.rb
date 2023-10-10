@@ -12,7 +12,6 @@ class ItemsController < ApplicationController
     @item.save
   end
 
-
   private
 
   def item_params
