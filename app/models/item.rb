@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   validates :name, :description, :price, :image, presence: true
   validates :category_id, :condition_id, :shipping_fee_payer_id, :prefecture_id, :days_to_ship_id,
             numericality: { other_than: 1, message: "Can't be blank" }
-  validates :price, numericality: { in: 300..9_999_999 }
+  validates :price, numericality: { only_integer: true, in: 300..9_999_999 }
 
   # Association
   belongs_to :user

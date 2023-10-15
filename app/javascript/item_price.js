@@ -6,7 +6,7 @@ window.addEventListener('turbo:load', () => {
   priceInput.addEventListener("input", () => {
     const inputValue = priceInput.value;
     addTaxDom.innerHTML = Math.floor(inputValue * 0.1);
-    profitDom.innerHTML = Math.ceil(inputValue * 0.9);
+    profitDom.innerHTML = Math.floor(inputValue * 0.9);
   })
   window.addEventListener('turbo:load', priceInput);
 });
