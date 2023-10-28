@@ -8,6 +8,8 @@ class Item < ApplicationRecord
   # Association
   belongs_to :user
   has_one_attached :image
+  has_one :order
+  has_many :orders
 
   # ActiveHash
   extend ActiveHash::Associations::ActiveRecordExtensions
