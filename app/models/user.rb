@@ -16,5 +16,5 @@ class User < ApplicationRecord
 
   # Associasion
   has_many :items
-  has_one :order
+  has_many :order
 end
