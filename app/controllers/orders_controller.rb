@@ -1,10 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_item, only: [:index, :create, ]
-
-  def set_item
-    @item = Item.find(params[:id])
-  end
+  before_action :set_item, only: [:index, :create]
 
   def index
     gon.public_key = ENV['PAYJP_PUBLIC_KEY']
@@ -27,6 +23,10 @@ class OrdersController < ApplicationController
   end
 
   private
+
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
 
   def order_params
     params.require(:order_address).permit(:postcode, :prefecture_id, :city, :block, :building, :phone).merge(

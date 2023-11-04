@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  # アソシエーション
+  # Associasion
   belongs_to :user
   belongs_to :item
   has_one :address
