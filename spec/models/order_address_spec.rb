@@ -29,7 +29,7 @@ RSpec.describe OrderAddress, type: :model do
       it 'postcodeが半角のハイフンを含んだ正しい形式でないと保存できないこと' do
         @order_address.postcode = '1234567'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Postcode is invalid. Include hyphen(-)")
+        expect(@order_address.errors.full_messages).to include('Postcode is invalid. Include hyphen(-)')
       end
 
       it 'prefectureを選択していないと保存できないこと' do
