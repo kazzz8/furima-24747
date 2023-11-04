@@ -21,4 +21,5 @@ class Prefecture < ActiveHash::Base
   # Association
   include ActiveHash::Associations
   has_many :items
+  has_many :addresses
 end

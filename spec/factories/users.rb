@@ -3,7 +3,7 @@ FactoryBot.define do
     gimei = Gimei.name
     nickname              { gimei.first.romaji }
     email                 { Faker::Internet.email }
-    password              { '1a' + Faker::Internet.password(min_length: 6) } # 1aを付与することで必ず、英数字混合になる
+    password              { '1a1a1a1a' } # 1aを付与することで必ず、英数字混合になる
     password_confirmation { password }
     last_name             { gimei.last.kanji }
     first_name            { gimei.first.kanji }
