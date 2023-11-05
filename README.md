@@ -78,10 +78,10 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :item
-- has_one :delivery_info
+- has_one :address
 
 
-## delivery_infos テーブル
+## address テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
@@ -90,7 +90,7 @@ Things you may want to cover:
 | city          | string     | null:false                     |
 | block         | string     | null:false                     |
 | building      | string     |                                |
-| phone_number  | string     | null: false                    |
+| phone         | string     | null: false                    |
 | order         | references | null: false, foreign_key: true |
 
 ### Association
