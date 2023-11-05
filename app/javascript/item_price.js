@@ -5,8 +5,9 @@ const price = () => {
 
   priceInput.addEventListener("input", () => {
     const inputValue = priceInput.value;
-    addTaxDom.innerHTML = Math.floor(inputValue * 0.1);
-    profitDom.innerHTML = Math.floor(inputValue * 0.9);
+    const tax = Math.floor(inputValue * 0.1);
+    addTaxDom.innerHTML = tax;
+    profitDom.innerHTML = Math.floor(inputValue - tax);
   })
 }
 
